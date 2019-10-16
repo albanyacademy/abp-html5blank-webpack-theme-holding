@@ -15,10 +15,11 @@ That is just starting point, more webpack options can be added to the theme as n
 
 ## How to install
 
-> 1. copy this theme into wp-content/themes/
-> 2. npm install
+> 1. Download WPEngine Backup of WordPress core files or get the most recent version of WordPress from wordpress.org
+> 2. copy this theme into wp-content/themes/
+> 3. npm install
 > 4. setup config in webpack.config.js (proxy or port if you are using browsersync option)
-> 3. run "npm run ---'script name' " from options bellow
+> 5. run "npm run ---'script name' " from options NPM build options below
 
 ## NPM build options
 
