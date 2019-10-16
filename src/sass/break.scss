@@ -1,0 +1,18 @@
+// SCSS Breakpoint
+@mixin breakpoint($point) {
+  @if $point == mobile {
+    @media (max-width: 599px) { @content; }
+  }
+  @else if $point == tablet_p {
+    @media (min-width: 600px) { @content; }
+  }
+  @else if $point == tablet_l {
+    @media (min-width: 1025px) { @content; }
+  }
+  @else if $point == laptop {
+    @media (min-width: 1441px) { @content; }
+  }
+  @else if $point == desktop {
+    @media (min-width: 1800px) { @content; }
+  }
+}
