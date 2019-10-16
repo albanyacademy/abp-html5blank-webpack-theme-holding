@@ -3,7 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Trocchi', serif;
   font-weight: normal;
 }
 
@@ -12,6 +12,48 @@ body:not(.user-is-tabbing) input:focus,
 body:not(.user-is-tabbing) select:focus,
 body:not(.user-is-tabbing) textarea:focus {
   outline: none;
+}
+
+form.mc4wp-form  {
+  width: 100%;
+  div {
+    width: 100%;
+    div#mc-form {
+      width: 100%;
+      span {
+        font-family: 'Trocchi', serif;
+        font-size: 18px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 2;
+        letter-spacing: 1.2px;
+        color: #7ba498;
+      }
+      input[type="email"] {
+        height: 51px;
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+        border: solid 1px #7ba498;
+        padding: 0 8px;
+        width: 361px;
+        max-width: 75%;
+      }
+      input[type="submit"] {
+        height: 51px;
+        background: #7ba498;
+        border: #7ba498;
+        color: #FFFFFF;
+        padding: 0 8px;
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
+        text-align: center;
+        width: 200px;
+        max-width: 25%;
+        margin-left: -4px;
+      }
+    }
+  }
 }
 
 section#holding-container {
@@ -69,8 +111,6 @@ section#holding-container {
         div.content-inner {
           width: 100%;
           height: 100%;
-          background-image: url('../media/holding-image.jpg');
-          background-image: url('../media/holding-image.webp');
           background-position: center;
           background-size: cover;
           background-repeat: no-repeat;
@@ -139,7 +179,7 @@ section#holding-container {
               width: 200px;
               height: 48px;
               text-align: center;
-              font-family: 'Poppins', sans-serif;
+              font-family: 'Trocchi', serif;
               font-size: 16px;
               font-weight: 300;
               font-style: normal;
@@ -154,7 +194,7 @@ section#holding-container {
                 content:"\2039";
                 position: absolute;
                 transform: rotateZ(90deg) scaleY(1.1);
-                font-family: sans-serif;
+                font-family: serif;
                 color: white;
                 font-weight: 300;
                 font-size: 48px;
@@ -172,32 +212,33 @@ section#holding-container {
           min-height: 48px;
         }
         img.logo {
-          width: 56px;
+          width: 70%;
+          max-width: 448px;
         }
         #welcome-header {
           display: none;
           @include breakpoint(tablet_l) {
             display: inline;
-            font-family: 'Poppins', sans-serif;
-            font-size: 24px;
-            font-weight: 700;
+            font-family: 'Trocchi', serif;
+            font-size: 18px;
+            font-weight: bold;
             font-style: normal;
             font-stretch: normal;
-            line-height: 1.5;
-            letter-spacing: -0.33px;
+            line-height: 2;
+            letter-spacing: 1.2px;
             color: $brand-one;
             margin-bottom: 48px;
+            text-transform: uppercase;
           }
         }
         #welcome-message {
           width: 100%;
           max-width: initial;
-          font-size: 30px;
-          font-weight: bold;
-          font-family: 'Poppins', sans-serif;
+          font-size: 16px;
+          font-family: 'Trocchi', serif;
           font-style: normal;
           font-stretch: normal;
-          line-height: 1.4;
+          line-height: 1.5;
           letter-spacing: normal;
           color: $brand-black;
           margin-bottom: 48px;
@@ -210,8 +251,8 @@ section#holding-container {
           }
           @include breakpoint(laptop) {
             max-width: 550px;
-            font-size: 42px;
-            line-height: 1.43;
+            font-size: 16px;
+            line-height: 1.5;
           }
         }
         #portal-link {
@@ -226,7 +267,7 @@ section#holding-container {
           background-color: $brand-two;
           color: white;
           text-decoration: none;
-          font-family: 'Poppins', sans-serif;
+          font-family: 'Trocchi', serif;
           font-size: 18px;
           font-weight: 500;
           font-style: normal;
@@ -277,7 +318,7 @@ section#holding-container {
                 height: 16px;
               }
               &.instgram {
-                width: 18.1px;
+                width: 19px;
                 height: 18px;
               }
             }
@@ -306,13 +347,20 @@ section#holding-container {
     }
     &.open {
       top: 0;
-      left: 0;
-      visibility: visible;
-      z-index: 5;
-      transition: left 750ms ease-out 100ms, z-index 0s step-start, visibility 0s step-start;
+      left: -50vw;
+      visibility: hidden;
+      z-index: -1;
+      transition: left 0ms ease-out 0ms, z-index 0s step-start, visibility 0s step-start;
+      @include breakpoint(tablet_l) {
+        top: 0;
+        left: 0;
+        visibility: visible;
+        z-index: 5;
+        transition: left 750ms ease-out 100ms, z-index 0s step-start, visibility 0s step-start;
+      }
     }
     h2 {
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Trocchi', serif;
       font-size: 20px;
       font-weight: 300;
       font-style: normal;
@@ -324,8 +372,8 @@ section#holding-container {
     }
     p {
       text-align: left;
-      font-family: 'Poppins', sans-serif;
-      font-size: 18px;
+      font-family: 'Trocchi', serif;
+      font-size: 12px;
       font-weight: 200;
       font-style: normal;
       font-stretch: normal;
@@ -335,6 +383,9 @@ section#holding-container {
       margin-bottom: 16px;
       &:last-child {
         margin-bottom: 0;
+      }
+      @include breakpoint(laptop) {
+        font-size: 16px;
       }
     }
   }
