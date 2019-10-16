@@ -1,0 +1,341 @@
+// SCSS Global
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  font-weight: normal;
+}
+
+body:not(.user-is-tabbing) button:focus,
+body:not(.user-is-tabbing) input:focus,
+body:not(.user-is-tabbing) select:focus,
+body:not(.user-is-tabbing) textarea:focus {
+  outline: none;
+}
+
+section#holding-container {
+  position: relative;
+  overflow: hidden;
+  @include breakpoint(tablet_l) {
+    overflow: auto;
+  }
+  div.inner-container {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    grid-template-areas:
+    "content"
+    "image";
+    @include breakpoint(tablet_l) {
+      grid-template-columns: 50vw;
+      grid-template-rows: auto;
+      grid-template-areas:
+      "content image";
+      height: 100vh;
+    }
+    div.content-container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      &.left {
+        grid-area: content;
+        justify-content: center;
+        padding: $small-margin-top $small-margin-bottom $small-margin-bottom $small-margin-bottom;
+        min-height: 75vh;
+        @include breakpoint(tablet_p) {
+          padding: $small-margin-top $small-margin-bottom $small-margin-bottom $small-margin-bottom;
+        }
+        @include breakpoint(tablet_l) {
+          padding: $large-margin-top $large-margin-bottom calc(#{$large-margin-bottom}*(2/3)) $large-margin-bottom;
+          justify-content: flex-start;
+          min-height: initial;
+        }
+        @include breakpoint(laptop) {
+          padding: $large-margin-top $large-margin-bottom $large-margin-bottom $large-margin-bottom;
+        }
+      }
+      &.right {
+        grid-area: image;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        object-fit: contain;
+        height: 25vh;
+        @include breakpoint(tablet_l) {
+          height: initial;
+        }
+        div.content-inner {
+          width: 100%;
+          height: 100%;
+          background-image: url('../media/holding-image.jpg');
+          background-image: url('../media/holding-image.webp');
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+        }
+      }
+      div.content-inner {
+        width: 100%;
+        &.content-logo {
+          justify-self: flex-start;
+          height: 100%;
+        }
+        &.content-copy {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: center;
+          justify-self: center;
+          height: auto;
+          padding: 48px 0;
+          @include breakpoint(tablet_p) {
+            height: auto;
+          }
+          @include breakpoint(tablet_l) {
+            height: auto;
+            min-height: calc(60vh - (#{$large-margin-top} + #{$large-margin-bottom}));
+          }
+          #ada-open-container {
+            display: none;
+            left: -$small-margin-bottom;
+            transition: background-color 200ms ease-in 0ms, left 750ms ease-in 100ms;
+            @include breakpoint(tablet_l) {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              width: 48px;
+              height: calc(100% - 48px * 2);
+              min-height: 400px;
+              position: absolute;
+              left: -$large-margin-bottom;
+              background-color: $brand-two;
+              overflow: hidden;
+            }
+            &:hover {
+              background-color: $brand-one;
+              transition: background-color 200ms ease-in 0ms, left 750ms ease-in 100ms;
+            }
+            &.open {
+              left: calc(50vw - #{$large-margin-bottom});
+              transition: background-color 200ms ease-out 0ms, left 750ms ease-out 100ms;
+              &:hover {
+                transition: background-color 200ms ease-out 0ms, left 750ms ease-in step-start;
+              }
+              button {
+                &:after {
+                  transition: transform 250ms ease-out 100ms;
+                  transform: rotateZ(270deg);
+                }
+              }
+            }
+            button {
+              transform: rotateZ(90deg);
+              position: absolute;
+              background-color: transparent;
+              border: none;
+              width: 200px;
+              height: 48px;
+              text-align: center;
+              font-family: 'Poppins', sans-serif;
+              font-size: 16px;
+              font-weight: 300;
+              font-style: normal;
+              font-stretch: normal;
+              line-height: 48px;
+              letter-spacing: 0.22px;
+              color: white;
+              -webkit-font-smoothing: antialiased;
+              cursor: pointer;
+              &:after {
+                transition: transform 250ms ease-in 100ms;
+                content:"\2039";
+                position: absolute;
+                transform: rotateZ(90deg) scaleY(1.1);
+                font-family: sans-serif;
+                color: white;
+                font-weight: 300;
+                font-size: 48px;
+                width: 10vh;
+              }
+            }
+          }
+        }
+        &.content-social {
+          display: flex;
+          align-items: flex-end;
+          justify-content: flex-start;
+          justify-self: flex-end;
+          height: 100%;
+          min-height: 48px;
+        }
+        img.logo {
+          width: 56px;
+        }
+        #welcome-header {
+          display: none;
+          @include breakpoint(tablet_l) {
+            display: inline;
+            font-family: 'Poppins', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.5;
+            letter-spacing: -0.33px;
+            color: $brand-one;
+            margin-bottom: 48px;
+          }
+        }
+        #welcome-message {
+          width: 100%;
+          max-width: initial;
+          font-size: 30px;
+          font-weight: bold;
+          font-family: 'Poppins', sans-serif;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: 1.4;
+          letter-spacing: normal;
+          color: $brand-black;
+          margin-bottom: 48px;
+          @include breakpoint(tablet_p) {
+            width: 70%;
+          }
+          @include breakpoint(tablet_l) {
+            width: 100%;
+            line-height: 1.4;
+          }
+          @include breakpoint(laptop) {
+            max-width: 550px;
+            font-size: 42px;
+            line-height: 1.43;
+          }
+        }
+        #portal-link {
+          display: block;
+          width: 23.81vw;
+          height: auto;
+          padding: 12px 56px;
+          min-width: 240px;
+          max-width: 260px;
+          min-height: 51px;
+          border-radius: 37.5px;
+          background-color: $brand-two;
+          color: white;
+          text-decoration: none;
+          font-family: 'Poppins', sans-serif;
+          font-size: 18px;
+          font-weight: 500;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: 1.5;
+          letter-spacing: 0.22px;
+          text-align: center;
+          transition: background-color 200ms ease-out 0ms;
+          white-space: nowrap;
+          &:hover {
+            background-color: $hover-brand-two;
+            transition: background-color 200ms ease-in 0ms;
+          }
+        }
+        #social-media-container {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            text-decoration: none;
+            background-color: $social-grey;
+            border: none;
+            border-radius: 100%;
+            margin-right: 24px;
+            transition: transform 200ms ease-in 0ms, background-color 200ms ease-in 0ms;
+            &:hover {
+              transition: transform 200ms ease-in 0ms, background-color 200ms ease-in 0ms;
+              transform: translateY(-4px);
+              background-color: $social-hover;
+            }
+            &:last-child {
+              margin-right: 0;
+            }
+            img.icon {
+              -webkit-filter: grayscale(100%); // EDIT REQUIRED
+              filter: grayscale(100%); // EDIT REQUIRED
+              &.facebook {
+                width: 9px;
+                height: 18px;
+              }
+              &.twitter {
+                width: 19.5px;
+                height: 16px;
+              }
+              &.instgram {
+                width: 18.1px;
+                height: 18px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  #ada-content {
+    position: absolute;
+    top: 0;
+    left: -50vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    background-color: white;
+    width: 50vw;
+    height: 100vh;
+    padding: $small-margin-bottom;
+    visibility: hidden;
+    z-index: -1;
+    transition: left 750ms ease-in 100ms, z-index 1.5s step-end, visibility 1.5s step-end;
+    @include breakpoint(tablet_l) {
+      padding: $large-margin-bottom;
+    }
+    &.open {
+      top: 0;
+      left: 0;
+      visibility: visible;
+      z-index: 5;
+      transition: left 750ms ease-out 100ms, z-index 0s step-start, visibility 0s step-start;
+    }
+    h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 20px;
+      font-weight: 300;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.5;
+      letter-spacing: -0.33px;
+      color: $brand-one;
+      margin-bottom: 24px;
+    }
+    p {
+      text-align: left;
+      font-family: 'Poppins', sans-serif;
+      font-size: 18px;
+      font-weight: 200;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.5;
+      letter-spacing: normal;
+      color: $brand-black;
+      margin-bottom: 16px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

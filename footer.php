@@ -1,4 +1,5 @@
 		<?php wp_footer(); ?>
+		<script src="scripts.js"></script>
 
 		<!-- analytics -->
 		<script>
